@@ -1,0 +1,268 @@
+/*
+Crie um programa que calcula o IMC de alguém.
+Requisitos: Entrada de dados e saída de dados na tela e no console.
+*/
+alert('Seja Bem Vindo ao Cálculo de IMC. \nDigite seus dados conforme forem solicitados')
+var nome   = prompt('Digite seu nome: ');
+console.log(nome);
+var altura = prompt('Digite sua altura:(Ex. 1.78) ');
+console.log(altura);
+var peso = prompt('Digite seu peso:(kg) ');
+console.log(peso);
+
+function imc (a,p){
+	//var imc = Math.round(p/(a*a));
+var imc = p/(a*a);
+
+	return imc.toFixed(2);
+}
+
+function grauImc(){
+	var grauValor = imc(altura,peso);
+	var classificao = ' ';
+	if (grauValor < 18.5) {
+		var classificao = ' MAGREZA(0) ';
+	} else if (grauValor > 18.5 && grauValor < 24.9) {
+		var classificao = ' NORMAL(0) ';
+	} else if (grauValor > 25.0 && grauValor < 29.9) {
+		var classificao = ' SOBREPESO(I) ';
+	} else if (grauValor > 30.0 && grauValor < 39.9) {
+		var classificao = ' OBESIDADE(II) ';
+	} else if (grauValor >  40.0) {
+		var classificao = ' OBESIDADE GRAVE(III) ';
+	}
+
+	return classificao;
+}
+
+
+alert (nome + ': Seu IMC é: ' + imc(altura,peso) + '\n Classificação: ' + grauImc());
+document.write (nome + ': Seu IMC é: ' + imc(altura,peso) + '\n Classificação: ' + grauImc());
+
+/*
+Crie um programa em javascrip que calcula a média de um estudante a partir da nota de 3 provas.
+Requisitos: Entrada de dados e saída de dados na janela e no console.
+*/
+
+document.write ('CÁLCULO DE MÉDIA');
+
+
+var qtdProvas   = parseInt(prompt('Insira a quantidade de provas: '));
+
+console.log(qtdProvas);
+
+var soma = 0.00;
+Number.parseFloat(soma);
+for (passo = 1; passo <= qtdProvas; passo++) {
+   // Enquanto estiver menos que a quantidade de provas 
+   //sera apresentado o alert com a inserçao
+   //das provas
+  
+  var nota   = parseFloat(prompt('Insira a nota da sua '+passo+'º prova:(Ex: 2.55) '));
+
+  soma  = parseFloat(soma) + parseFloat(nota);
+  console.log(nota);
+  
+}
+ console.log(soma.toFixed(2));
+
+ //CALCULANDO MEDIA
+ 	var media = soma/qtdProvas;
+ 	alert('Você realizou '+qtdProvas+' provas.\nSua média final foi: '+media.toFixed(2));
+
+
+/*
+Crie um programa que calcula o 13º salário de um funcionário.
+Requisitos: Com Entrada de dados, saída de dados na janela e no console.
+
+
+*/
+
+
+document.write ('CÁLCULO DE 13º SALÁRIO');
+//ENTRADA DE DADOS
+var salarioRecebido    = parseFloat(prompt('Insira seu salário: '));
+console.log(salarioRecebido);
+
+var mesesTrabalhados   = parseInt(prompt('Insira os meses trabalhados: '));
+console.log(mesesTrabalhados);
+
+var numDependentes     = parseInt(prompt('Insira o número de dependentes: '));
+console.log(numDependentes);
+
+var numParcelas        = prompt('Selecione o número de Parcelas. \n Digite 1 para PRIMEIRA PARCELA \n Digite 2 para SEGUNDA PARCELA \n Digite 3 para PARCELA ÚNICA');
+console.log(numParcelas);
+//FIM DE ENTRADA DE DADOS
+
+
+//FUNCOES
+//FUNCAO CALCULO DESCONTO INSS
+
+function inss(a){
+	/*
+		O desconto do INSS pode ser de 8%, 9% ou 11%, de acordo
+		com a faixa salarial.  para salários de até 1.399,12
+		reais, o desconto é de 8%; para salários de 1.399,12 até 2.331,88 reais
+		a alíquota é de 9%; e para salários superiores a 2.331,88
+		 reais o desconto é de 11%, limitado a 1167.89 reais.(10.617)
+	*/
+
+	
+	
+	if (a <= 1399.12) {
+		var desInss = a*8/100;
+	} else if (a > 1399.12 && a <= 2331.88) {
+		var desInss = a*9/100;
+	} else if (a > 2331.88) {
+		var desInss = a*11/100;
+	} 
+
+	if (desInss > 1167.89){
+		desInss = 1167.89;
+	}
+	return desInss.toFixed(2);
+}
+
+console.log(inss(salarioRecebido));
+    
+//FUNCAO CALCULO DESCONTO IRPF
+function irpf(a){
+var salarioDescInss = a-parseFloat(inss(a));
+
+	/*
+Aqueles que ganham até R$1.903,98 mensal: isentos do pagamento;
+Aqueles que ganham de R$1.903,98 até R$2.836,66: alíquotas de 7,5%;
+Aqueles que ganham de R$2.836,66 até R$3.751,05: alíquotas de 15%;
+Aqueles que ganham de R$3.751,06 até R$4.664,68: alíquotas de 22,5%;
+Aqueles que ganham acima de R$4.664,68: alíquotas de 27,5%.
+	*/
+
+if (salarioDescInss <= 1903.98) {
+		var desIrpf = 0;
+	} else if (salarioDescInss > 1903.98 && salarioDescInss <= 2836.66) {
+		var desIrpf = salarioDescInss*7.5/100;
+	} else if (salarioDescInss > 2836.66 && salarioDescInss <= 3751.05) {
+		var desIrpf = salarioDescInss*15/100;
+	} else if (salarioDescInss > 3751.05 && salarioDescInss <= 4664.68) {
+		var desIrpf = salarioDescInss*22.5/100; 
+	} else if (salarioDescInss > 4664.68) {
+		var desIrpf = salarioDescInss*27.5/100; 
+	}
+	return desIrpf.toFixed(2);
+}
+
+console.log(irpf(salarioRecebido));
+
+
+
+//FUNCAO CALCULO  DE DEPENDETES 
+
+function calcDependentes(a){
+	var  vlrDependente = 189.59 ;
+	/*
+       Outra dedução que deve ser feita é em relação ao número de dependentes
+       do contribuinte, que está atualmente fixado em R$189,59 por dependente;
+	*/
+    var desDependentes = parseFloat(vlrDependente*a);
+	return desDependentes.toFixed(2);
+}
+
+console.log(calcDependentes(numDependentes));
+
+
+//FUNCAO CALCULO  DE PRIMEIRA PARCELA 
+function calcPrimeiraParcela(a,b){
+	var primeiraParcela = ((a/12)*b)/2;
+	return primeiraParcela.toFixed(2);
+}
+console.log(calcPrimeiraParcela(salarioRecebido,mesesTrabalhados));
+
+//FUNCAO CALCULO  DE SEGUNDA PARCELA 
+function calcSegundaParcela(a,b,c){
+	calcPrimeiraParcela(a,b);
+	irpf(a);
+    inss(a);
+
+
+	//var segundaParcela = ((a/12)*b)-calcPrimeiraParcela(a,b)-irpf(a)-inss(a)+calcDependentes(c);
+     var segundaParcela = ((a/12)*b)-calcPrimeiraParcela(a,b)-irpf(a)-inss(a)-parseFloat(calcDependentes(c));
+
+
+	return segundaParcela.toFixed(2);
+}
+console.log(calcSegundaParcela(salarioRecebido,mesesTrabalhados,numDependentes));
+
+//FUNCAO CALCULO  DE  PARCELA UNICA
+function calcParcelaUnica(a,b,c){
+	var parcelaUnica = parseFloat(calcPrimeiraParcela(a,b))+parseFloat(calcSegundaParcela(a,b,c));
+
+
+	//var segundaParcela = ((a/12)*b)-calcPrimeiraParcela(a,b)-irpf(a)-inss(a)+calcDependentes(c);
+     //var segundaParcela = ((a/12)*b)-calcPrimeiraParcela(a,b)-irpf(a)-inss(a)-parseFloat(calcDependentes(c));
+
+
+	return parcelaUnica.toFixed(2);
+}
+console.log(calcParcelaUnica(salarioRecebido,mesesTrabalhados,numDependentes));
+
+
+//RETORNANDO OS DADOS PARA O FUNCIONARIO
+//EM UM ALERT
+
+	
+switch (numParcelas) {
+  case '1':
+        alert('Você solicitou a 1º PARCELA do 13º salário. \nValor a ser recebido R$ '+calcPrimeiraParcela(salarioRecebido,mesesTrabalhados)+'.');
+        document.write ('Você solicitou a 1º PARCELA do 13º salário. \nValor a ser recebido R$ '+calcPrimeiraParcela(salarioRecebido,mesesTrabalhados)+'.');
+
+    break;
+  case '2':
+        alert('Você solicitou a 2º PARCELA do 13º salário. \nValor a ser recebido R$ '+calcSegundaParcela(salarioRecebido,mesesTrabalhados,numDependentes)+'.\nDesconto INSS R$ '+inss(salarioRecebido)+'.\nDesconto IRPF R$ '+irpf(salarioRecebido)+'.\nDesconto Dependentes R$ '+calcDependentes(numDependentes)+'.');
+        document.write('Você solicitou a 2º PARCELA do 13º salário. \nValor a ser recebido R$ '+calcSegundaParcela(salarioRecebido,mesesTrabalhados,numDependentes)+'.\nDesconto INSS R$ '+inss(salarioRecebido)+'.\nDesconto IRPF R$ '+irpf(salarioRecebido)+'.\nDesconto Dependentes R$ '+calcDependentes(numDependentes)+'.');
+
+    break;
+  case '3':
+        alert('Você solicitou o 13º salário em PARCELA ÚNICA. \nValor a ser recebido R$ '+calcParcelaUnica(salarioRecebido,mesesTrabalhados,numDependentes)+'.\nDesconto INSS R$ '+inss(salarioRecebido)+'.\nDesconto IRPF R$ '+irpf(salarioRecebido)+'.\nDesconto Dependentes R$ '+calcDependentes(numDependentes)+'.');
+        document.write('Você solicitou o 13º salário em PARCELA ÚNICA. \nValor a ser recebido R$ '+calcParcelaUnica(salarioRecebido,mesesTrabalhados,numDependentes)+'.\nDesconto INSS R$ '+inss(salarioRecebido)+'.\nDesconto IRPF R$ '+irpf(salarioRecebido)+'.\nDesconto Dependentes R$ '+calcDependentes(numDependentes)+'.');
+
+    break;
+  default:
+    alert('Você digitou algum valor errado ou diferente do solicitado. \n Tente novamente!')
+}
+
+
+
+
+
+/*
+Crie um programa que calcula um imposto de 0.3% sob o valor de uma compra online.
+Requisitos: Com Entrada de dado, saída de dados na tela e no console, use uma 
+função para calcular o imposto.
+*/
+
+//CALCULO DE IMPOSTO
+
+
+document.write ('CÁLCULO DE IMPOSTO');
+//ENTRADA DE DADOS
+var valorCompra    = parseFloat(prompt('Insira o valor da compra:(Ex. 9.99) '));
+console.log(valorCompra);
+
+//FIM DE ENTRADA DE DADOS
+
+
+//FUNCOES
+//FUNCAO CALCULO DESCONTO INSS
+
+function calculoImposto(a){
+
+	var imposto = parseFloat(a*3/100);
+	var total   = parseFloat(a)+parseFloat(imposto);
+	var  retorno = 'Valor do produto R$ '+a.toFixed(2)+'.\nValor do Imposto(0,3%) R$ '+imposto.toFixed(2)+'.\nValor do Total R$ '+total.toFixed(2)+'.'; 
+	 return retorno;
+}
+    alert(calculoImposto(valorCompra));
+	console.log(calculoImposto(valorCompra));
+ 
+
+
