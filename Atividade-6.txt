@@ -1,0 +1,68 @@
+Crie 4 tabelas no Banco contendo.
+
+👉1 - Chave Primária (dependência interna)
+👉2 - 5 Atributos internos Cada
+
+Atentem-se para os tipos de dados usados
+Inclua - Varchar, int, date,
+
+Pode ser feito em um bloco de notas mesmo ou usando extensão .sql 
+
+💪Desafio - Opcional 
+Crie um programa em js que recebe o nome e a atividade do aluno e calcula o atraso das atividades, gerando uma nova nota. Exportando essa saída para um documento.
+Regra - 2% por dia de atraso.
+
+
+
+//TABELAS
+
+CREATE TABLE `cabecalho` (
+  `cod_cabecalho` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `logo_marca` varchar(100) NOT NULL,
+  `info1` varchar(100) NOT NULL,
+  `info2` varchar(100) NOT NULL,
+  `endereco` varchar(100) NOT NULL,
+  `comp_endereco` varchar(100) NOT NULL,
+  `cidade` varchar(100) NOT NULL,
+  `estado` varchar(100) NOT NULL,
+  `telefones` varchar(100) NOT NULL
+)
+
+CREATE TABLE `exames_db` (
+  `CD_EXAME` varchar(20) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `DS_EXAME` varchar(150) NOT NULL,
+  `VR_EXAME` double NOT NULL,
+  `DT_VIGENCIA` date NOT NULL,
+  `OBS` varchar(250) 
+) 
+
+
+CREATE TABLE `pedido_exame` (
+  `codPedidoExameSequencial` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `cod_pedido` varchar(30) NOT NULL,
+  `cod_cliente` varchar(30) NOT NULL,
+  `cod_exame` varchar(50) NOT NULL,
+  `data_pedido` date NOT NULL,
+  `data_entrega` date NOT NULL,
+  `vlr_exame` double NOT NULL,
+  `vlr_desconto` float NOT NULL
+)
+
+CREATE TABLE `rodape` (
+  `cod_rodape` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `logo_marca` varchar(100) NOT NULL,
+  `info1` varchar(100) NOT NULL,
+  `info2` varchar(100) NOT NULL,
+  `info3` varchar(100) NOT NULL,
+  `info4` varchar(100) NOT NULL
+)
+CREATE TABLE `usuario` (
+  `cod_usuario` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `cod_perfil` int(11) NOT NULL,
+  `nome` varchar(150) DEFAULT NULL,
+  `cpf` varchar(15) DEFAULT NULL,
+  `telefone` varchar(20) DEFAULT NULL,
+  `senha` varchar(100) DEFAULT NULL
+)
+
+
