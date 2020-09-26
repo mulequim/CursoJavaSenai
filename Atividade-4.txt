@@ -18,3 +18,104 @@
 //Desenvolvido por: Marcos Oliveira
 //Data: Set/2020
 
+//Código 01
+
+
+alert('Insira seu Login e senha!')
+var loginIn   = prompt('Login: ');
+var senhaIn   = prompt('Senha: ');
+
+
+var usuario = "marcos";
+var senha   = "123456";
+
+if (usuario == loginIn) {
+	if(senha == senhaIn){
+		alert('Logado com Sucesso!')
+	}else{
+		alert('Usuário ou senha inválidos!')
+	}
+}else {
+			alert('Usuário ou senha inválidos!')
+}
+
+//#########
+//Código 02
+
+
+var testeDrive   = prompt('Olá, tudo bem? Deseja fazer um teste drive?');
+if (testeDrive == 'sim') {
+	var data   = prompt('Digite a data do teste drive: ');
+	if(data != ""){
+		var hora   = prompt('Digita o Horário:');
+		if(data != ""){
+				alert('Teste drive confirmado para dia '+data+', Horário: '+hora+'. \nChegar 15 minutos antes do horário marcado para preencher a documentação.');
+		}else{
+			var outroVeiculo   = prompt('Deseja escolher outro veículo? ');
+			if (outroVeiculo == 'sim' ){
+	            var escolhercarro   = prompt('Selecione:\n1 - Fusca.\n2 - Brasília.\n3 - Variante.\n4 - Kombi');
+	            alert('Ótima escolha iremos preparar toda documentação e envir no seu e-mail.');
+			}else{
+				alert('Obrigado, visite nossa loja e veja mais possibilidades disponíveis.');
+			}
+		}
+	}else{
+		alert('Obrigado, visite nossa loja e veja mais possibilidades disponíveis.');
+	}
+}else {
+	var comprarDireto   = prompt('Que bom, vejo que o senhor deseja já deseja sair com o seu veículo, então digite a forma de pagamento. \n1 - Pagamento a vista.\n2 - Pagamento Financiado.\n3 - Carta Contemplata');
+	switch (comprarDireto) {
+	case '1':
+	alert('Pagamento a Vista selecionado, procure o gerente para preencher a documentação e efetuar o pagamento. \n Muito obrigado por sua aquisição.');
+	break;
+	case '2':
+	alert('Após a aprovação da financeira entraremos em contato. \n Confira a relação de documentos enviada no seu email, \n caso não enviado algum por favor envie o quanto antes para continuar o processo de aquisição.');
+	break;
+	case '3':
+	alert('Confira a relação de documentos enviada no seu email, \n caso não enviado algum por favor envie o quanto antes para continuar o processo de aquisição.');
+	break;
+	default:
+	alert('Obrigado, visite nossa loja e veja mais possibilidades disponíveis.');
+	
+	}
+
+}
+//#########
+//CODIGO 03
+
+
+var sabor ="";
+var pizza = ["Calabresa", "Portugueza", "Mussarela","Bacon", "Chocolate", "Banana"];
+for (var cont = 0; cont < pizza.length; cont++) {
+  console.log("Pizza ", cont, ": ",   pizza[cont]);
+  
+
+}
+
+
+
+var escolha   = prompt(sabor+'Insira o número da pizza desejada: \nOu digite o seu sabor preferido');
+
+	switch (escolha) {
+	case '0':
+	document.write('Você escolheu a Pizza de Calabresa.\nValor: R$ 25,00. \nEntrega: 35min');
+	break;
+	case '1':
+	document.write('Você escolheu a Pizza Portuguesa.\nValor: R$ 35,00. \nEntrega: 35min');
+	break;
+	case '2':
+	document.write('Você escolheu a Pizza de Mussarela.\nValor: R$ 35,00. \nEntrega: 35min');
+	break;
+	case '3':
+	document.write('Você escolheu a Pizza de Bacon.\nValor: R$ 30,00. \nEntrega: 35min');
+	break;
+	case '4':
+	document.write('Você escolheu a Pizza de Chocolate.\nValor: R$ 20,00. \nEntrega: 35min');
+	break;
+	case '5':
+	document.write('Você escolheu a Pizza de Banana.\nValor: R$ 22,00. \nEntrega: 35min');
+	break;
+	default:
+	document.write('Você montou sua própria pizza, sabor: '+escolha+'.\nValor: R$ 40,00. \nEntrega: 55min');
+	
+	}
