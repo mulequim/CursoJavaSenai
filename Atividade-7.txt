@@ -35,7 +35,7 @@ use bancocursojavasenai;
 CREATE TABLE `tb_produtos` (
   `pro_pk` int(11) not null PRIMARY KEY AUTO_INCREMENT,
   `pro_nome` varchar(150) NOT NULL,
-  `pro_fornecedor_fk` int(11) NOT NULL,
+  `pro_codigoFornecedorFk` int(11) NOT NULL,
   `pro_valorCusto` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -72,5 +72,16 @@ CREATE TABLE `tb_forncedor` (
   `for_email` varchar(100) NOT NULL,
   `for_dataAtualizacao` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+//adicionando chaves estrangeiras
+
+
+
+use bancocursojavasenai;
+ALTER TABLE `tb_estoque` ADD CONSTRAINT `fk_codigoProduto` FOREIGN KEY ( `est_codigoProdutoFk` ) REFERENCES `tb_produtos` ( `pro_pk` ) ;
+ALTER TABLE `tb_produtos` ADD CONSTRAINT `fk_codigoFornecedor` FOREIGN KEY ( `pro_codigoFornecedorFk` ) REFERENCES `tb_forncedor` ( `for_pk` ) ;
+ALTER TABLE `tb_vendas` ADD CONSTRAINT `fk_codigoCliente` FOREIGN KEY ( `ven_codigoClienteFk` ) REFERENCES `tb_cliente` ( `cli_pk` ) ;
+ALTER TABLE `tb_vendas` ADD CONSTRAINT `fk_codigoProdutoFk` FOREIGN KEY ( `ven_codigoProdutoFk` ) REFERENCES `tb_produtos` ( `pro_pk` ) ;
+
 
 
