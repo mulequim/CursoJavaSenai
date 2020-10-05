@@ -77,11 +77,55 @@ CREATE TABLE `tb_forncedor` (
 
 
 
+
 use bancocursojavasenai;
 ALTER TABLE `tb_estoque` ADD CONSTRAINT `fk_codigoProduto` FOREIGN KEY ( `est_codigoProdutoFk` ) REFERENCES `tb_produtos` ( `pro_pk` ) ;
 ALTER TABLE `tb_produtos` ADD CONSTRAINT `fk_codigoFornecedor` FOREIGN KEY ( `pro_codigoFornecedorFk` ) REFERENCES `tb_forncedor` ( `for_pk` ) ;
 ALTER TABLE `tb_vendas` ADD CONSTRAINT `fk_codigoCliente` FOREIGN KEY ( `ven_codigoClienteFk` ) REFERENCES `tb_cliente` ( `cli_pk` ) ;
 ALTER TABLE `tb_vendas` ADD CONSTRAINT `fk_codigoProdutoFk` FOREIGN KEY ( `ven_codigoProdutoFk` ) REFERENCES `tb_produtos` ( `pro_pk` ) ;
+
+
+
+
+
+//insercao das tabelas
+
+INSERT INTO `tb_cliente`(`cli_pk`, `cli_nome`, `cli_telefone`, `cli_dataCadastro`) VALUES ('','Francisco','(61)90005-8741','2020-03-17');
+INSERT INTO `tb_cliente`(`cli_pk`, `cli_nome`, `cli_telefone`, `cli_dataCadastro`) VALUES ('','Joao','(61)94475-5536','2020-10-29');
+INSERT INTO `tb_cliente`(`cli_pk`, `cli_nome`, `cli_telefone`, `cli_dataCadastro`) VALUES ('','Fonseca','(61)79985-3744','2019-05-15');
+INSERT INTO `tb_cliente`(`cli_pk`, `cli_nome`, `cli_telefone`, `cli_dataCadastro`) VALUES ('','Filipe','(61)77445-3032','2019-08-18');
+INSERT INTO `tb_cliente`(`cli_pk`, `cli_nome`, `cli_telefone`, `cli_dataCadastro`) VALUES ('','Edvaldo','(61)38544-5202','2018-01-10');
+
+
+
+INSERT INTO `tb_forncedor`(`for_pk`, `for_nome`, `for_telefone`, `for_email`, `for_dataAtualizacao`) VALUES ('','Horus','(61)98585-6565','horus@gmail.com','2020-10-04');
+INSERT INTO `tb_forncedor`(`for_pk`, `for_nome`, `for_telefone`, `for_email`, `for_dataAtualizacao`) VALUES ('','DiMig','(61)3695-1457','dimig@gmail.com','2020-08-07');
+INSERT INTO `tb_forncedor`(`for_pk`, `for_nome`, `for_telefone`, `for_email`, `for_dataAtualizacao`) VALUES ('','Intelbras','(61)8419-4125','inlbras@gmail.com','2020-10-04');
+INSERT INTO `tb_forncedor`(`for_pk`, `for_nome`, `for_telefone`, `for_email`, `for_dataAtualizacao`) VALUES ('','Base','(61)5255-6674','base@gmail.com','2020-10-04');
+INSERT INTO `tb_forncedor`(`for_pk`, `for_nome`, `for_telefone`, `for_email`, `for_dataAtualizacao`) VALUES ('','Assai','(61)74185-0023','assai@gmail.com','2020-10-04');
+
+INSERT INTO `tb_produtos`(`pro_pk`, `pro_nome`, `pro_codigoFornecedorFk`, `pro_valorCusto`) VALUES ('','Câmera','3','150.00');
+INSERT INTO `tb_produtos`(`pro_pk`, `pro_nome`, `pro_codigoFornecedorFk`, `pro_valorCusto`) VALUES ('','Fio 2,5mm','4','50.00');
+INSERT INTO `tb_produtos`(`pro_pk`, `pro_nome`, `pro_codigoFornecedorFk`, `pro_valorCusto`) VALUES ('','Alicate de Corte','2','10.00');
+INSERT INTO `tb_produtos`(`pro_pk`, `pro_nome`, `pro_codigoFornecedorFk`, `pro_valorCusto`) VALUES ('','Monitor 19','3','1500.00');
+INSERT INTO `tb_produtos`(`pro_pk`, `pro_nome`, `pro_codigoFornecedorFk`, `pro_valorCusto`) VALUES ('','Abraçadeira 15cm','1','1.00');
+INSERT INTO `tb_produtos`(`pro_pk`, `pro_nome`, `pro_codigoFornecedorFk`, `pro_valorCusto`) VALUES ('','Fita Isolante','4','5.00');
+
+INSERT INTO `tb_estoque`(`est_pk`, `est_quantidade`, `est_codigoProdutoFk`, `est_dataAtualizacao`) VALUES ('','10','5','2020-10-04');
+INSERT INTO `tb_estoque`(`est_pk`, `est_quantidade`, `est_codigoProdutoFk`, `est_dataAtualizacao`) VALUES ('','500','2','2020-09-23');
+INSERT INTO `tb_estoque`(`est_pk`, `est_quantidade`, `est_codigoProdutoFk`, `est_dataAtualizacao`) VALUES ('','100','1','2020-08-01');
+INSERT INTO `tb_estoque`(`est_pk`, `est_quantidade`, `est_codigoProdutoFk`, `est_dataAtualizacao`) VALUES ('','200','3','2020-07-18');
+INSERT INTO `tb_estoque`(`est_pk`, `est_quantidade`, `est_codigoProdutoFk`, `est_dataAtualizacao`) VALUES ('','2000','4','2020-02-06');
+
+
+
+
+INSERT INTO `tb_vendas` (`ven_pk`, `ven_quantidade`, `ven_codigoProdutoFk`, `ven_codigoClienteFk`, `ven_valorVenda`, `ven_dataVenda`) VALUES
+(1, 2, 4, 3, 250, '2020-10-10'),
+(2, 4, 2, 1, 50, '2020-10-10'),
+(3, 6, 3, 2, 20, '2020-10-10'),
+(4, 7, 1, 4, 300, '2020-10-10');
+
 
 
 
