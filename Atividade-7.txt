@@ -129,3 +129,23 @@ INSERT INTO `tb_vendas` (`ven_pk`, `ven_quantidade`, `ven_codigoProdutoFk`, `ven
 
 
 
+//mostrando os dados das tabelas  editando dados da tabela estoque
+
+SELECT * FROM `tb_cliente`
+SELECT * FROM `tb_estoque`
+SELECT * FROM `tb_forncedor`
+SELECT * FROM `tb_produtos`
+SELECT * FROM `tb_vendas`
+
+
+SELECT `pro_pk`, `pro_nome`, `pro_codigoFornecedorFk`, `pro_valorCusto` FROM `tb_produtos` WHERE `pro_codigoFornecedorFk` = 3
+
+
+SELECT `ven_pk`, `ven_quantidade`, `ven_codigoProdutoFk`, `ven_codigoClienteFk`, `ven_valorVenda`, `ven_dataVenda` FROM `tb_vendas` WHERE `ven_codigoClienteFk` = 1
+
+
+UPDATE `tb_estoque` SET `est_quantidade`=5, `est_dataAtualizacao`='CURDATE()' WHERE  `est_pk` = 1;
+UPDATE `tb_estoque` SET `est_quantidade`=50, `est_dataAtualizacao`='CURDATE()' WHERE  `est_pk` = 4;
+UPDATE `tb_estoque` SET `est_quantidade`=60, `est_dataAtualizacao`='CURDATE()' WHERE  `est_pk` = 3;
+
+
