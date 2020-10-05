@@ -1,0 +1,37 @@
+🎯A partir da Atividade 07 vamos incrementar nosso modelo de banco
+
+👉Defina as relações de dependência entre as tabelas
+👉Crie um documento.SQL ou dump da sua base de dados
+👉e suba aqui na atividade.
+
+📣Dica: Usamos a coluna da dependência interna da tabela
+também conhecida como chave primária, da tabela pai para a tabela filha como sendo chave
+estrangeira, crie a coluna que vai receber essa instrução na tabela filha.
+
+Reveja as aulas e tire dúvidas.
+
+
+
+Fiz esse exercicio na atividade anterior, mas vou postar aqui para constar o envio.
+
+
+~
+~
+~
+
+~
+~
+~
+//adicionando chaves estrangeiras
+
+
+
+
+use bancocursojavasenai;
+ALTER TABLE `tb_estoque` ADD CONSTRAINT `fk_codigoProduto` FOREIGN KEY ( `est_codigoProdutoFk` ) REFERENCES `tb_produtos` ( `pro_pk` ) ;
+ALTER TABLE `tb_produtos` ADD CONSTRAINT `fk_codigoFornecedor` FOREIGN KEY ( `pro_codigoFornecedorFk` ) REFERENCES `tb_forncedor` ( `for_pk` ) ;
+ALTER TABLE `tb_vendas` ADD CONSTRAINT `fk_codigoCliente` FOREIGN KEY ( `ven_codigoClienteFk` ) REFERENCES `tb_cliente` ( `cli_pk` ) ;
+ALTER TABLE `tb_vendas` ADD CONSTRAINT `fk_codigoProdutoFk` FOREIGN KEY ( `ven_codigoProdutoFk` ) REFERENCES `tb_produtos` ( `pro_pk` ) ;
+
+
+
