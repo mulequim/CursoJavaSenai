@@ -18,3 +18,24 @@ ATIVIDADE 7
 📌Exclua uma coluna de cada tabela (delete) Crie uma situação de necessidade de exclusão
 
 
+//criacao da tabela cliente
+use bancocursojavasenai;
+CREATE TABLE `tb_cliente` (
+  `cli_pk` int(11) not null PRIMARY KEY AUTO_INCREMENT,
+  `clie_nome` varchar(150) NOT NULL,
+  `cli_telefone` varchar(15) NOT NULL,
+  `cli_dataCadastro` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+//criacao tabela produtos
+
+
+use bancocursojavasenai;
+CREATE TABLE `tb_produtos` (
+  `pro_pk` int(11) not null PRIMARY KEY AUTO_INCREMENT,
+  `pro_nome` varchar(150) NOT NULL,
+  `pro_fornecedor_fk` int(11) NOT NULL,
+  `pro_valorCusto` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
