@@ -39,3 +39,25 @@ CREATE TABLE `tb_produtos` (
   `pro_valorCusto` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+//cliacao da tabela estoque
+
+use bancocursojavasenai;
+CREATE TABLE `tb_estoque` (
+  `est_pk` int(11) not null PRIMARY KEY AUTO_INCREMENT,
+  `est_quantidade` int(11) NOT NULL,
+  `est_codigoProdutoFk` int(11) NOT NULL,
+  `est_dataAtualizacao` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+//criacao da tabela vendas
+use bancocursojavasenai;
+CREATE TABLE `tb_vendas` (
+  `ven_pk` int(11) not null PRIMARY KEY AUTO_INCREMENT,
+  `ven_quantidade` int(11) NOT NULL,
+  `ven_codigoProdutoFk` int(11) NOT NULL,
+  `ven_codigoClienteFk` int(11) NOT NULL,
+  `ven_valorVenda` float NOT NULL,
+  `ven_dataVenda` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
