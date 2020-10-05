@@ -149,3 +149,8 @@ UPDATE `tb_estoque` SET `est_quantidade`=50, `est_dataAtualizacao`='CURDATE()' W
 UPDATE `tb_estoque` SET `est_quantidade`=60, `est_dataAtualizacao`='CURDATE()' WHERE  `est_pk` = 3;
 
 
+
+//excluido a coluna  data de atualizacao da tabela fornecedor
+
+ALTER TABLE tb_forncedor DROP COLUMN for_dataAtualizacao;
+
