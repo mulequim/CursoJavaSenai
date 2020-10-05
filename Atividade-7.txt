@@ -1,0 +1,20 @@
+ATIVIDADE 7
+
+🎯Escolha um desses modelos de negócio para criar uma base de dados(Escola,restaurante,academia,concessionária,Oficina,Lanchonete,Lava-Jato)
+
+👉Crie uma base de dados 
+👉Crie 4 tabelas
+👉Crie no mínimo 5 linhas para cada tabela
+👉Faça 5  linhas de carga (insert)em cada tabela
+(para cada tabela é preciso ter obrigatoriamente)
+*Um tipo varchar
+*Um tipo date
+*Um tipo int
+*Uma dependência interna(Chave primária)
+
+📌Retorne os dados de todas as tabelas
+📌Retorne as duas colunas de cada tabela
+📌Edita uma coluna de cada tabela (update) Crie uma situação de necessidade de edição 
+📌Exclua uma coluna de cada tabela (delete) Crie uma situação de necessidade de exclusão
+
+
